@@ -11,7 +11,9 @@ draft: false
 
 近期，我在本地硬件环境（**AMD Ryzen 7 9800X3D + AMD Radeon RX 9070 XT 16GB**）上，从底层打通了从麦克风实时采音、VAD 人声切分、SenseVoice 流式转写，到本地 Ollama 大模型推理及多引擎语音合成的完整闭环，构建了 **`VoiceStudio & Realtime Voice Agent`**。
 
-本文将详细拆解全双工语音流水线的工程设计要点与多引擎 TTS 的客观评测结果。
+> [!TIP] 💻 GitHub 开源仓库与本地运行指南
+> - 📦 **开源代码仓库**：👉 [**github.com/zhzack/voice-agent**](https://github.com/zhzack/voice-agent)
+> - 🎙️ **实时麦克风转写体验**：本地拉取仓库并安装依赖后，直接执行 `python live_mic_stt.py` 即可感受毫秒级本地实时语音听写！
 
 ---
 

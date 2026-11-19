@@ -42,15 +42,18 @@ draft: false
    (分布式 SQLite)   (对象存储凭据)   (智能归类大模型) (客户端搜索引擎)
 ```
 
-### 核心项目矩阵
+### 核心项目矩阵与读者在线试用入口
 
-| 子系统 | 独立域名 | 核心技术栈 | 职责与定位 |
+> [!TIP] ⭐️ 所有已上线系统均开放给外部读者自助注册与在线试用：
+
+| 子系统 | 在线直达链接 | 核心技术栈 | 职责与试用说明 |
 | :--- | :--- | :--- | :--- |
-| **`cf-auth`** | `auth.b1uegrey.xyz` | Workers + D1 + React + Tailwind | 统一身份与权限中枢 (SSO)，全域共享登录态与九宫格应用门户 |
-| **`cf-bookkeeping`** | `book.b1uegrey.xyz` | Workers + D1 + R2 + Workers AI + PWA | 智能流水记账、持物大件折旧、心愿单与变额薪资回溯 |
-| **`cf-webhook`** | `webhook.b1uegrey.xyz` | Workers + Hono + D1 + SSE + React | 跨平台 Webhook 极速接收与实时长连接检查调试平台 |
-| **`zhzack-blog`** | `blog.b1uegrey.xyz` | Astro 5 + Fuwari + Cloudflare Pages | 基于现代卡片风的高性能个人技术与思考沉淀平台 |
-| **`autoSyncTab`** | Chrome Web Store | Manifest V3 + React + Google Drive | 浏览器标签页跨端智能同步与防抖防冲突收纳扩展 |
+| **`cf-auth`** | [**auth.b1uegrey.xyz**](https://auth.b1uegrey.xyz) | Workers + D1 + React | **统一单点登录中枢**：支持读者自助注册账号，体验九宫格 Launchpad 门户 |
+| **`cf-bookkeeping`** | [**book.b1uegrey.xyz**](https://book.b1uegrey.xyz) | Workers + D1 + R2 + AI | **智能资产记账平台**：大件持物日均折旧、抗冲动心愿单、手机 PWA 添加到主屏幕 |
+| **`cf-webhook`** | [**webhook.b1uegrey.xyz**](https://webhook.b1uegrey.xyz) | Workers + Hono + SSE | **边缘 Webhook 调试台**：自建接收通道 (Bin)，终端 cURL 即时毫秒级推送 |
+| **`autoSyncTab`** | [**Chrome 商店官方直达**](https://chromewebstore.google.com/detail/jdpiepnpdobipikhedfcegaehmfpgmjp?utm_source=item-share-cb) | Manifest V3 + React | **标签页管理扩展**：可在 Chrome/Edge 官方商店一键安装体验 |
+| **`zhzack-blog`** | [**blog.b1uegrey.xyz**](https://blog.b1uegrey.xyz) | Astro 5 + Fuwari + Pages | **现代技术博客**：静态秒开、Swup 平滑过渡与 Pagefind 全文检索 |
+| **`voice-agent`** | [**GitHub 开源仓库**](https://github.com/zhzack/voice-agent) | Python + SenseVoice + Ollama | **全双工实时语音平台**：纯本地离线实时转写与多引擎 TTS 音色评测 |
 
 ---
 

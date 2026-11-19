@@ -13,6 +13,28 @@ draft: false
 
 为了打造一个真正靠谱、现代且具备云端自动同步的标签页收纳器，我开发了 **`autoSyncTab`**。本文将分享在 Chrome 扩展 **Manifest V3** 规范下，如何构建高稳定性的同步机制与工程化体系。
 
+> [!TIP] ⭐️ 官方扩展商店现已上线，欢迎安装体验！
+> - 🛒 **Chrome 应用商店一键安装**：👉 [**autoSyncTab - Chrome Web Store 官方页面**](https://chromewebstore.google.com/detail/jdpiepnpdobipikhedfcegaehmfpgmjp?utm_source=item-share-cb)
+> - 💻 **GitHub 开源仓库**：👉 [github.com/zhzack/autoSyncTab](https://github.com/zhzack/autoSyncTab)
+> - 兼容浏览器：Google Chrome、Microsoft Edge、Brave、Arc 等所有 Chromium 内核浏览器。
+
+---
+
+## 🚀 读者上手体验指南
+
+安装扩展后，您可以按照以下步骤快速体验它的各项核心能力：
+
+1. **一键智能收纳当前窗口标签页**：
+   * 方式 A：直接在当前网页按下快捷键 `Ctrl + Shift + E`（Mac 用户按 `Command + Shift + E`）。
+   * 方式 B：点击浏览器右上角扩展图标，在弹窗中点击 **“收纳所有标签页”**。
+   * 您当前打开的所有网页将瞬间被集中整理为一个按时间归档的卡片分组，内存占用立即下降 90% 以上。
+2. **体验全屏 Manager 看板**：
+   * 点击右上角设置中的 **“打开标签页管理器”**。
+   * 支持按标题与 URL 实时模糊检索、按住卡片自由**拖拽调整排序**、切换深浅色主题。
+3. **开启多端自动防抖云同步**：
+   * 在管理器页面点击 **“连接 Google Drive”** 进行授权。
+   * 授权后即开启 **30 秒防抖自动同步机制**，无论在公司电脑还是家中笔记本，标签变动均会自动安全漫游合并！
+
 ---
 
 ## 🏛️ 系统架构与模块划分

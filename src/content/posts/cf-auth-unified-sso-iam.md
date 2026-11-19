@@ -13,6 +13,27 @@ draft: false
 
 为此，我设计并实现了 **`cf-auth` · 统一身份与权限管理中心 (IAM Hub)**。它完全运行在 Cloudflare Workers + D1 架构上，实现了 **一次登录、全生态子域名免密畅通、细粒度应用权限矩阵控制与银行级密码安全**。
 
+> [!TIP] 🌐 在线体验与自助注册
+> - 🔑 **统一认证中枢入口**：👉 [**https://auth.b1uegrey.xyz**](https://auth.b1uegrey.xyz)
+> - 👥 **账号体系**：支持**外部读者自主注册账号**进行功能试用！
+
+---
+
+## 🚀 读者 1 分钟 SSO 体验流程
+
+您可以按照以下步骤，亲身体验跨子域单点登录的核心交互：
+
+1. **注册专属体验账号**：
+   * 打开 [auth.b1uegrey.xyz](https://auth.b1uegrey.xyz)，点击注册页面录入您的自定义用户名与密码。
+   * 系统通过 WebCrypto PBKDF2（100,000 次加盐迭代）即时完成安全加密存储。
+2. **体验九宫格应用门户 (Launchpad)**：
+   * 登录成功后，您将进入统一门户导航页，直观查阅所有已接入生态的子系统卡片。
+3. **跨子域免密漫游验证**：
+   * 在当前浏览器中直接打开记账平台 [book.b1uegrey.xyz](https://book.b1uegrey.xyz) 或 Webhook 调试台 [webhook.b1uegrey.xyz](https://webhook.b1uegrey.xyz)。
+   * **见证免密时刻**：无需再次输入账号密码，子系统边缘节点在 <1ms 内完成 JWT Cookie 验签，直接无缝进入系统主界面！
+4. **反向重定向拦截测试**：
+   * 在浏览器的隐私无痕窗口（未登录状态）直接访问 [book.b1uegrey.xyz](https://book.b1uegrey.xyz)，观察系统如何自动携带白名单重定向参数跳转回认证中心。
+
 ---
 
 ## 🌟 核心目标与挑战

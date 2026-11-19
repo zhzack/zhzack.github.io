@@ -15,6 +15,47 @@ draft: false
 
 为了彻底终结这些调试烦恼，我开发了 **`Webhook Inspector (cf-webhook)`** 平台。它完全依托 Cloudflare Workers 边缘网络，搭建了一套集 **实时报文审查、飞书秒过、Mock 响应定制以及内网安全转发** 于一身的极客调试工具箱。
 
+> [!TIP] 🌐 在线实时体验地址
+> - 🚀 **在线 Web 控制台**：👉 [**https://webhook.b1uegrey.xyz**](https://webhook.b1uegrey.xyz)
+> - 👥 **账号支持**：平台已开放**外部用户自助注册**！读者可直接在页面注册专属个人账号，开箱即用。
+
+---
+
+## ⚡ 1 分钟上手试用指南
+
+无论您是在开发飞书机器人、调试支付回调，还是测试任意 Webhook，都可以按照以下步骤立即试用：
+
+### 步骤 1：注册并获取专属接收端点
+访问 [webhook.b1uegrey.xyz](https://webhook.b1uegrey.xyz) 自助注册并登录，系统会自动为您生成独立的通道（Bin）接收 URL，格式形如：
+```text
+https://webhook.b1uegrey.xyz/bin/<你的Channel_ID>
+```
+
+### 步骤 2：在终端模拟发送一笔 Webhook
+打开您的电脑终端（Terminal / PowerShell），执行以下 cURL 命令模拟第三方回调推送：
+```bash
+curl -X POST https://webhook.b1uegrey.xyz/bin/<你的Channel_ID> \
+  -H "Content-Type: application/json" \
+  -H "User-Agent: MyTestClient/1.0" \
+  -d '{"event": "order.paid", "amount": 99.8, "orderId": "ORD_2026_8888", "buyer": "访客体验"}'
+```
+
+### 步骤 3：感受 Server-Sent Events (SSE) 毫秒级动效
+回到网页端，**无需手动刷新页面**，左侧事件流列表将在 **100 毫秒内** 伴随平滑过渡动画实时弹出一笔新记录，点击即可在右侧清晰查阅：
+- 格式化 JSON 树形折叠高亮。
+- Headers 键值对审查。
+- 自动生成的标准 cURL 重放命令。
+
+### 步骤 4：体验内网穿透转发到本地开发服务
+如果您本地运行了 Node.js / Spring Boot / Python 开发服务（如 `http://localhost:3000/webhook`），直接运行以下命令即可将云端接收到的真实 Webhook 实时穿透转发至本地端口：
+```bash
+# 1. 极速下载官方转发客户端脚本
+curl -sSL https://webhook.b1uegrey.xyz/forward.mjs -o forward.mjs
+
+# 2. 启动长连接监听转发 (无需公网 IP)
+node forward.mjs --bin <你的Channel_ID> --target http://localhost:3000/webhook
+```
+
 ---
 
 ## 🌟 核心特性与杀手级功能
