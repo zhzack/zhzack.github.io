@@ -110,10 +110,18 @@ if (body?.type === "url_verification" && body?.challenge) {
 - **零外部端口暴露**：本地电脑不需要开放任何公网端口，本地防火墙无需打洞，全部是客户端主动发起的安全长连接外发请求。
 - **Token 鉴权保护**：客户端与云端建立 SSE 连接时需要附带有效的 JWT 令牌，防止未授权第三方嗅探调试流量。
 
+### 🌟 进阶赋能：标准 HTTP 出站代理与 Telegram 机器人全流程闭环
+在调试海外机器人（如 Telegram Bot、Discord、OpenAI）时，开发者常遇到“收得进、发不出”的痛点：本地收到了 Webhook，但发不出回包。`forward.mjs` 现已内置标准本地 HTTP 正向代理服务：
+- **无缝平替 Clash，业务代码零修改**：本地代码一律保留官方地址 `https://api.telegram.org`。只需在终端设置 `export HTTPS_PROXY=http://127.0.0.1:8787`，流量即通过 Cloudflare Workers 原生 TCP 隧道透传出海，和开启 Clash 体验完全一致，支持任意切换。
+- **入站 + 出站一键全托管**：运行 `node forward.mjs -b my-bot -t http://localhost:3000 --proxy 8787`，一条命令搞定 Webhook 接收穿透与出站 API 调用。
+
 ---
 
-## 🎯 架构结语
+## 🎯 架构结语与未来演进
 
 目前 `Webhook Inspector` 已稳定运行在 `https://webhook.b1uegrey.xyz`，并与统一认证中心 `cf-auth` 完成了单点登录集成，支持不同开发者创建专属的调试通道 (Bin) 并相互隔离。
 
 从一个临时的调试脚本，演进为一个高可用、低延迟的 Serverless 基础设施，充分展现了 Cloudflare 边缘运行时的无限可能。
+
+> [!NOTE] 🔮 备选演进规划：通用双向 HTTP 穿透隧道 (自建 ngrok / cloudflared)
+> 对于需要外部访客直接浏览本地 Web 页面、获取本地实时动态 Response 的场景，架构上可进一步演进为**基于 WebSocket + Cloudflare Durable Objects 的双向挂起隧道**，利用 RPC 机制回传本地响应，作为独立的高性能通用穿透子系统。
